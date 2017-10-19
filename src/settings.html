@@ -1,0 +1,123 @@
+{% extends "./_layouts/base.html" %} 
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+            <!-- 讲师资料 -->
+            <div class="body teacher-profile">
+                <div class="settings">
+                    <form id="form" class="form-horizontal">
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+{% endblock %}
+
+{% block script %}
+<script type="text/tpl" id="tpl">
+    <div class="form-group">
+      <label for="" class="col-md-3 control-label">姓名</label>
+      <div class="col-md-5">
+        <p class="form-control-static"><%= teacher.tc_name %></p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="" class="col-md-3 control-label">头像</label>
+      <div class="col-md-2 preview">
+        <img src="<%= teacher.tc_avatar %>">
+        <input type="file" id="upfile">
+        <div class="cover">
+          <i class="fa fa-upload"></i>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="" class="col-md-3 control-label">昵称</label>
+      <div class="col-md-5">
+        <input type="text" class="form-control input-sm" value="<%= teacher.tc_roster %>">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="" class="col-md-3 control-label">性别</label>
+      <div class="col-md-3">
+        <label class="radio-inline">
+          <input type="radio" <%= teacher.tc_gender == 0 ? 'checked' : '' %>> 男
+        </label>
+        <label class="radio-inline">
+          <input type="radio" <%= teacher.tc_gender == 1 ? 'checked' : '' %>> 女
+        </label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="" class="col-md-3 control-label">出生日期</label>
+      <div class="col-md-5">
+        <input type="date" class="form-control input-sm" value="<%= teacher.tc_birthday %>">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="" class="col-md-3 control-label">籍贯</label>
+      <div class="col-md-5">
+
+
+            <select name="" class="form-control input-sm">
+              <% province.forEach(function(item){ %>
+                <option value="<%= item.id %>" <%= teacher.tc_province == item.id ? 'selected' : '' %>><%= item.name %></option>
+              <% }) %>
+            </select>
+
+           
+
+            <select name="" class="form-control input-sm">
+              <% province.forEach(function(item){ %>
+                <option value="<%= item.id %>" <%= teacher.tc_province == item.id ? 'selected' : '' %>><%= item.name %></option>
+              <% }) %>
+            </select>
+
+            
+            <select name="" class="form-control input-sm">
+              <% province.forEach(function(item){ %>
+                <option value="<%= item.id %>" <%= teacher.tc_province == item.id ? 'selected' : '' %>><%= item.name %></option>
+              <% }) %>
+            </select>
+          
+           
+          
+
+          </div>
+    </div>
+    <div class="form-group">
+      <label for="" class="col-md-3 control-label">手机号码</label>
+      <div class="col-md-5">
+        <input type="text" class="form-control input-sm" value="<%= teacher.tc_cellphone %>">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="" class="col-md-3 control-label">电子邮箱</label>
+      <div class="col-md-5">
+        <input type="text" class="form-control input-sm" value="<% teacher.tc_email %>">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="" class="col-md-3 control-label">入职日期</label>
+      <div class="col-md-5">
+        <input type="date" class="form-control input-sm" value="<%= teacher.tc_join_date %>">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="" class="col-md-3 control-label">个人介绍</label>
+      <div class="col-md-5 ckeditor">
+        <textarea name="" rows="15" class="form-control input-sm"><%= teacher.tc_introduce %></textarea>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-8">
+        <a href="./course_add_step2.html" class="btn btn-success btn-sm pull-right">保 存</a>
+        <a href="./repass.html" class="btn btn-link btn-sm pull-right">更改密码？</a>
+      </div>
+    </div>
+    </script>
+<script src="js/settings.js"></script>
+{% endblock %}
